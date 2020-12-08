@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    CORS 响应头部-Access-Control-Allow-Headers
+    默认情况下，CORS仅支持客户端向服务器发送如下的9个请求头:
+    Accept、Accept-Language、Content-Language、DPR、Downlink、Save-Data、Viewport-Width、Width,Content-Type(值仅限于text/plain、multipart/form-data、application/x-www-form-urlencoded三者之一)
+
+    如果客户端向服务器发送了额外的请求头信息，则需要在服务器端，通过Access-Contro-Allow-Headers对额外的请求头进行声明，否则这次请求会失败!
+    允许客户端额外向服务器发送Content-Type请求头和X-Custom-Header请求头
+    【注意】:多个请求头之间使用英文的逗号进行分割
+    <!-- res.setHeader('Access-Control-Allow-Headers','Content-Type，X-Custom-Header') -->
+
+</body>
+
+</html>

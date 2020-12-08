@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    4.res响应对象
+    在服务器的request事件处理函数中，如果想访问与服务器相关的数据或属性，可以使用如下的方式:
+    <script>
+    server.on('request',(req,res)=>{
+        const str = `Your request url is ${req.url},and request method is ${req.method}`
+        res.end(str)
+    })
+    </script>
+    res 是响应对象，它包含了与服务器相关的数据和属性，例如:
+    要发送到客户端的字符串
+    res.end()方法的作用:
+    向客户端发送指定的内容，并结束这次请求的处理过程
+
+</body>
+
+</html>

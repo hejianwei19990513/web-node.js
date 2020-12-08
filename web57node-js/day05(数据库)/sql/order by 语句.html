@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1.语法
+    ORDERBY语句用于根据指定的列对结果集进行排序。ORDER BY语句默认按照升序对记录进行排序。
+    select * from roles.roles order by status (asc)
+
+
+    如果您希望按照降序对记录进行排序，可以使用DESC关键字。
+    select * from roles.roles order by status desc
+
+    <!-- ORDER BY语句进行多重排序 -->asc是第一个汉子的第一个字母按照a-z排序
+    select * from roles.roles order by status desc , tvname asc
+</body>
+
+</html>

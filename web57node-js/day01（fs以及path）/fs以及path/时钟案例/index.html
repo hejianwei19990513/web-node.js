@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            color: white;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        小鞠女神
+    </div>
+</body>
+<script>
+    var box = document.querySelector(".box")
+    box.onclick = function(){
+        this.style.transition = "2s"
+        this.style.transform = "translateX(500px)"
+    }
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    定义多个局部中间件
+    可以在路由中，通过如下两种等价的方式，使用多个局部中间件:
+    <!-- 以下两种写法是"完全等价"的，可根据自己的喜好，选择任意一种方式进行使用 -->
+    <script>
+        app.get('/', mw1, mw2, (req, res) => {
+            res.send('Homepage.')
+        })
+        app.get('/', [mw1, mw2], (req, res) => {
+            res.send('Homepage.')
+        })
+    </script>
+
+</body>
+
+</html>

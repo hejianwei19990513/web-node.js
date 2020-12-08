@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 1.接口的跨域问题
+    刚才编写的GET和POST接口，存在一个很严重的问题:不支持跨域请求。
+    解决接口跨域问题的方案主要有两种:
+    CORS(主流的解决方案，推荐使用)
+    JSONP(有缺陷的解决方案:只支持GET请求) -->
+    <button class="get">get请求</button>
+    <button class="post">post请求</button>
+    <script>
+        $(".get").on("click",function(){
+            $.ajax({
+                type:"get",
+
+                // 由于这里打开网页发出的get请求是file协议，而url地址是http协议，所以出现了跨域问题
+                url:"http://127.0.0.1/api/get",
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+        $(".post").on("click",function(){
+            $.ajax({
+                type:"post",
+                url:"http://127.0.0.1/api/post",
+                data:{
+                    name:"jjy"
+                },
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

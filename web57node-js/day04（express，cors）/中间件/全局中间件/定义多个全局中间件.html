@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    定义多个全局中间件
+    可以使用app.use()连续定义多个全局中间件。客户端请求到达服务器之后，会按照中间件定义的先后顺序依次进行调用，示例代码如下:
+    <script>
+        app.use(function (req, res, next) {
+            // 第1个全局中间件
+            console.log('调用了第1个全局中间件')
+            next()
+        })
+        app.use(function (req, res, next) {
+            // 第2个全局中间件
+            console.log("调用了第2个全局中间件")
+            next()
+        })
+        app.get('/user', (req, res) => {
+            // 请求这个路由，会依次触发上述两个全局中间件
+            res.send('Home page.')
+        })
+    </script>
+</body>
+
+</html>

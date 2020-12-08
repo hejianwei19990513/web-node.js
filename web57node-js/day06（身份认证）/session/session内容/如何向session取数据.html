@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    4.从session中取数据
+    可以直接从req.session对象上获取之前存储的数据，示例代码如下:
+    <script>
+        //获取用户姓名的接口
+        app.get(' lapi/username ', (req, res) => {
+            //判断用户是否登录
+            if (!req.session.islogin) {
+                return res.send({ status: 1, msg: 'fail' })
+                res.send({ status: 0, msg: 'success ', username: req.session.user.username })
+            }
+        })
+    </script>
+</body>
+
+</html>

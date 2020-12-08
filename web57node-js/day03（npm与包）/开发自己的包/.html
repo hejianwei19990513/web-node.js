@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            border: 0;
+            border-top: 0.5px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var arr = [1,2,3,4,1,2,3,4,1,2,3,4]
+        var empty = null
+        function random(a, b) {
+            a = Math.floor(a)
+            b = Math.floor(b)
+            return Math.floor(Math.random() * (b - a + 1)) + a
+        }
+        for (var i = 0; i < arr.length; i++) {
+            var num = random(0, arr.length-1)
+            var num1 = random(0, arr.length-1)
+            while(num == num1) {
+                num = random(0, arr.length-1)
+                num1 = random(0, arr.length-1)
+            }
+            empty = arr[num1]
+            arr[num1] = arr[num]
+            arr[num] = empty
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>

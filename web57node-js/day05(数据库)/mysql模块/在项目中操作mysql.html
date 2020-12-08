@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    4.1在项目中操作数据库的步骤
+    <!-- (1)安装操作MySQL数据库的第三方模块(mysql) -->
+    1.安装mysql模块
+    mysql模块是托管于npm上的第三方模块。它提供了在Node.js项目中连接和操作MySQL数据库的能力。想要在项目中使用它，需要先运行如下命令，将mysql安装为项目的依赖包:
+    npm install mysql
+
+    <!-- (2)通过mysql模块连接到MySQL数据库 -->
+    2.配置mysql模块
+    在使用mysql模块操作MySQL数据库之前，必须先对 mysql模块进行必要的配置，主要的配置步骤如下:
+    <script>
+    // 导入mysql模块
+    const mysql = require( ' mysql ')
+    // 建立与MysQL数据库的连接 
+    const db = mysql.createPool({
+        host: '127.0.0.1',//数据库的IP地址6
+        user : 'root',//登录数据库的账号
+        password: 'root',//登录数据库的密码
+        database:'roles'//指定要操作哪个数据库
+    })
+    </script>
+
+    <!-- (3)通过mysql模块执行SQL语句 -->
+    3.测试 mysql模块能否正常工作
+    调用db.query()函数，指定要执行的SQL语句，通过回调函数拿到执行的结果:
+    <script>
+    //检测mysql模块能否正常工作
+    db.query( 'SELECT 1',(err, results) =>{
+        if(err) return console.log(elh.message)
+        
+        //只要能打印出[RowDataPacket { '1':1 }]的结果，就证明数据库连接正常
+        console.log(results)
+    })
+    </script>
+    
+</body>
+
+</html>

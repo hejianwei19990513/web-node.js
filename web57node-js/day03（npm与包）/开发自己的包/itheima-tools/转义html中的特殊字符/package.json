@@ -1,0 +1,8 @@
+{
+    "name":"itheima-tools",
+    "version":"1.0.0",
+    "main" : "index.js",
+    "description":"提供了转义html标签中的特殊字符的功能",
+    "keywords": ["htmlStr"],
+    "license": "ISC"
+}

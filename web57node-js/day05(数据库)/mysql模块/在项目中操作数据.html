@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1.查询数据
+    <!-- 使用select语句查询数据 -->
+    <script>
+        db.query('select * from roles', (err, result) => {
+            if (err) return console.log(err.message);
+
+            console.log(result);
+        })
+    </script>
+
+    2.插入数据
+    <!-- 向users 表中新增数据，其中username为Spider-Man，password 为pcc321。示例代码如下: -->
+    <script>
+        //要插入到users表中的数据对象
+        const dataStr = { tvname: "游泳先生", role: "宋茶茶" }
+
+        //待执行的SQL语句，其中英文的?表示占位符
+        // const sqlStr = 'insert into roles (tvname,role) values (?,?)'
+        const sqlStr = 'insert into roles set ?'//简化写法
+
+        //使用数组的形式，依次为?占位符指定具体的值
+        db.query(sqlStr, dataStr, (err, result) => {
+            if (err) return console.log(err.message);
+            if (result.affectedRows == 1) {
+                console.log('插入数据成功');//这里插入的数据id在数据库显示为1,2,3,5,6因为之前删除了id为4的数据，因为id的唯一性，即使被删除了也不会在添加数据的时候出现这个被删除的id
+            }
+        })
+    </script>
+
+    4.更新数据
+    <!-- 可以通过如下方式，更新表中的数据: -->
+    <script>
+        // 要更新的数据对象
+        const user = { id: 7, username: 'aaa', password: "000" }
+
+        //要执行的SQL语句
+        // const sqlStr = 'UPDATE roles SET username=?,password=? WHERE id=?'
+        const sqlStr = 'UPDATE roles SET ? WHERE id=?'//简化方式
+
+        //调用db.query()执行SQL语句的同时，使用数组依次为占位符指定具体的值
+        db.query(sq1Str, [roles, roles.id], (err, results) => {
+            if (err) return console.log(err.message)//失败
+            if (results.affectedRows === 1) { console.log('更新数据成功! ') }//成功 
+        })
+    </script>
+
+
+    5.删除数据
+    <!-- 在删除数据时，推荐根据id这样的唯一标识，来删除对应的数据。示例如下: -->
+    <script>
+        //要执行的SQL语句
+        const sqlStr = 'DELETE FROM users wHERE id=?'
+        //调用db.query()执行QL语句的同时，为占位符指定具体的值
+        //注意:如果SQL语句中有多个占位符，则必须使用数组为每个占位符指定具体的值
+        //如果SQL语句中只有一个占位符，则可以省略数组
+        db.query(sqlstr, 7, (err, results) => {
+            if (err) return console.log(err.message)//失败
+            if (results.affectedRows === 1) { console.log('删除数据成功! ') }//成功9 
+        })
+    </script>
+
+    6.标记删除
+    使用DELETE语句，会把真正的把数据从表中删除掉。为了保险起见，推荐使用标记删除的形式，来模拟删除的动作。
+    所谓的标记删除，就是在表中设置类似于status这样的状态字段，来标记当前这条数据是否被删除。
+    当用户执行了删除的动作时，我们并没有执行DELETE语句把数据删除掉，而是执行了UPDATE语句，将这条数据对应的status字段标记为删除即可。
+
+</body>
+
+</html>

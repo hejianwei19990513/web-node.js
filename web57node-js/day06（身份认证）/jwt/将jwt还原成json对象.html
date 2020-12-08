@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    5.将JWT字符串还原为JSON对象
+    客户端每次在访问那些有权限接口的时候，都需要主动通过请求头中的Authorization
+    字段，将Token字符串发
+    送到服务器进行身份认证。
+    此时，服务器可以通过 express-jwt这个中间件，自动将客户端发送过来的Token解析还原成JSON对象:
+    <script>
+    //使用app.use()来注册中间件
+    expressJwT({ secret: secretKey })//就是用来解析Token的中间件
+    unless({path:[/^\/api\//]})//用来指定哪些接口不需要访问权限
+    app.use(expressJMT({secret:secretKey}).unless({path:[/A\/api\//]}))
+    </script>
+</body>
+
+</html>

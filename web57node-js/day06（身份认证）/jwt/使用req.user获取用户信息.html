@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    6.使用req.user 获取用户信息
+    当express-jwt这个中间件配置成功之后，即可在那些有权限的接口中，使用req.user对象，来访问从JWT字符串中解析出来的用户信息了，示例代码如下:
+    <script>
+        // 这是一个有权限的API接口
+        app.get(' / admin/getinfo', function (req, res) {
+            console.log(req.user)
+            res.send({
+                status: 200,
+                message: '获取用户信息成功! ',
+                data: req.user
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    4.4第三方模块的加载机制
+    如果传递给require()的模块标识符不是一个内置模块，也没有以./或../开头，则 Node.js会从当前模块的父目录开始，尝试从/node_modules文件夹中加载第三方模块。
+    如果没有找到对应的第三方模块，则移动到再上一层父目录中，进行加载，直到文件系统的根目录。
+    例如，假设在'C\Users\itheima\project\foo.js'文件里调用了require('tools')，则Node.,js 会按以下顺序查找:
+    C:\Users\itheima\project\node_modules\tools
+    C:\Users\itheima\node_modules\tools
+    C:\Users\node_modules\tools
+    C:\node_modules\tools
+
+</body>
+
+</html>

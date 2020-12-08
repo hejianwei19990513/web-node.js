@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1.需要实现的功能
+    （1）格式化日期
+    （2）转义HTML中的特殊字符
+    （3）还原HTML中的特殊字符
+
+
+    2.初始化包的基本结构
+    新建itheima-tools文件夹，作为包的根目录在itheima-tools 文件夹中，新建如下三个文件:
+    package.json(包管理配置文件)
+    index.js(包的入口文件)
+    README.md(包的说明文档)
+
+
+    3.初始化 package.json
+    {
+    "name":"itheima-tools",
+    "version":"1.0.0",
+    "main" : "index.js",
+    "description":"提供了格式化时间，HTMLEscape的功能"，
+    "keywords": ["itheima" , "dateFormat", "escape"],
+    "license": "ISC"
+    }
+
+    4.编写包的说明文档
+    包根目录中的README.md文件，是包的使用说明文档。通过它，我们可以事先把包的使用说明，以markdown的格式写出来，方便用户参考。
+    README文件中具体写什么内容，没有强制性的要求;只要能够清晰地把包的作用、用法、注意事项等描述清楚即可。
+    我们所创建的这个包的README.md文档中，会包含以下6项内容:
+    安装方式、导入方式、格式化时间、转义HTML中的特殊字符、还原HTML 中的特殊字符、开源协议
+
+</body>
+
+</html>

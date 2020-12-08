@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    3.向session中存数据
+    当express-session中间件配置成功后，即可通过req.session来访问和使用session对象，从而存储用户的关键信息:
+    <script>
+        app.post('/api/login', (req, res) => {
+
+            //判断用户提交的登录信息是否正确
+            if (req.body.username !== 'admin' || req.body.password !== '000000')
+                return res.end({ status: 1, msg: "登录失败" })
+
+            req.session.user = req.bodyl //将用户的信息，存储到Session中
+
+            req.session.islogin = true//将用户的登录状态，存储到Session中
+
+            res.send({ status: 0, msg: '登录成功' })
+        })
+    </script>
+
+</body>
+
+</html>

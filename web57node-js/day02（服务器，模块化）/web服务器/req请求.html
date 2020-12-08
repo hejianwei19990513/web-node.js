@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    3. req请求对象
+    只要服务器接收到了客户端的请求，就会调用通过server.on()为服务器绑定的request 事件处理函数。如果想在事件处理函数中，访问与客户端相关的数据或属性，可以使用如下的方式:
+    <script>
+        server.on('request', (req) => {
+            const str = `Your request url is ${req.url},and request method is ${req.method}`
+            console.log(str)
+        })
+    </script>
+    req是请求对象，它包含了与客户端相关的数据和属性，
+    例如:
+    req.url 是客户端请求的URL地址
+    req.method是客户端的method请求类型
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    7.devDependencies节点
+    如果某些包只在项目开发阶段会用到，在项目上线之后不会用到，则建议把这些包记录到devDependencies节点中与之对应的，如果某些包在开发和项目上线之后都需要用到，则建议把这些包记录到dependencies 节点中。
+    您可以使用如下的命令，将包记录到devDependencies节点中:
+    <!-- 安装指定的包，并记录到devDependencies节点中 -->
+    npm i 包名-P
+    <!-- 注意:上述命令是简写形式，等价于下面完整的写法: -->
+    npm install 包名--save-dev
+
+</body>
+
+</html>

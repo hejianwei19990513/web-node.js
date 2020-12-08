@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    2.配置express-session中间件
+    express-session中间件安装成功后，需要通过app.use()来注册session中间件，示例代码如下:
+    <script>
+        //导入session中间件
+        var session = require('express-session')
+        //配置Session中间件
+        app.use(session({
+
+            secret: 'keyboard cat',//secret属性的值可以为任意字符串 
+
+            resave: false,//固定写法
+            
+            saveUninitialized: true //固定写法9 
+        }
+        ))
+    </script>
+
+</body>
+
+</html>

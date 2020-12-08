@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1.项目包
+    那些被安装到项目的node_modules目录中的包，都是项目包。
+    项目包又分为两类，分别是:
+    开发依赖包(被记录到devDependencies节点中的包，只在开发期间会用到)
+    核心依赖包(被记录到dependencies节点中的包，在开发期间和项目上线之后都会用到)
+    <!-- 开发依赖包(会被记录到devDependencies节点下) -->(例如：less)
+    npm i包名 -D
+
+    <!-- 核心依赖包(会被记录到dependencies节点下) -->
+    npm i包名
+
+</body>
+
+</html>

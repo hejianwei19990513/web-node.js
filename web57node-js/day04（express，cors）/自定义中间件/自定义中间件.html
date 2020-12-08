@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1.需求描述与实现步骤
+    自己手动模拟一个类似于express.urlencoded这样的中间件，来解析POST提交到服务器的表单数据。
+    实现步骤:
+    <!-- 定义中间件 -->
+    <!-- 监听req的data事件 -->
+    监听req的data事件
+    在中间件中，需要监听req对象的data事件，来获取客户端发送到服务器的数据。如果数据量比较大，无法一次性发送完毕，则客户端会把数据切割后，分批发送到服务器。所以data事件可能会触发多次，每一次触发data事件时，获取到数据只是完整数据的一部分，需要手动对接收到的数据进行拼接。
+
+    <!-- 监听req的end事件 -->
+    当请求体数据接收完毕之后，会自动触发req的end 事件。因此，我们可以在req的end事件中，拿到并处理完整的请求体数据。
+
+    <!-- 使用querystring模块解析请求体数据 -->
+    Node.js 内置了一个querystring模块，专门用来处理查询字符串。通过这个模块提供的parse()函数，可以轻松把查询字符串，解析成对象的格式。示例代码如下:
+    <script>
+        // 导入处理querystring的Node.js内置模块
+        const qs = require(' querystring ')
+        // 调用qs.parse()方法，把查询字符串解析为对象
+        const body = qs.parse(str)
+    </script>
+
+
+    <!-- 将解析出来的数据对象挂载为req.body将自定义中间件封装为模块 -->
+    上游的中间件和下游的中间件及路由之间，共享同一份req和res。因此，我们可以将解析出来的数据，挂载为 req的自定义属性，命名为req.body，供下游使用。示例代码如下:
+    <script>
+        req.on('end', () => {
+            const body = qs.parse(str)//调用qs.parse()方法，把查询字符串解析为对象
+            req.body = body    //将解析出来的请求体对象，挂载为req.body属性
+            next()//最后，一定要调用next函数，执行后续的业务逻辑
+        })
+    </script>
+
+
+</body>
+
+</html>

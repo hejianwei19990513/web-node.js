@@ -1,0 +1,8 @@
+{
+    "name":"itheima-tools",
+    "version":"1.0.0",
+    "main" : "index.js",
+    "description":"提供了还原html标签中的特殊字符的功能",
+    "keywords": ["strHtml"],
+    "license": "ISC"
+}
